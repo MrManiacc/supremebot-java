@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<?import javafx.scene.control.ToggleGroup?>
+
+<VBox prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1"
+fx:controller="controllers.MainController">
+    <fx:define>
+        <ToggleGroup fx:id="group1" />
+    </fx:define>
+    <children>
+        <MenuBar style="-fx-border-color: white; -fx-background-color: black;" VBox.vgrow="NEVER">
+            <menus>
+                <Menu mnemonicParsing="false" text="File">
+                    <items>
+                        <MenuItem style=" -fx-text-fill: black;" mnemonicParsing="false" text="Add payment information" onAction="#addPaymentInfo" />
+                        <MenuItem style=" -fx-text-fill: black;" mnemonicParsing="false" text="Delete all saved payment information" onAction="#deleteSavedPaymentInfo" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                    <items>
+                        <MenuItem style=" -fx-text-fill: black;" mnemonicParsing="false" text="About SupremeSniper" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+        <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" style="-fx-background-color: black;" VBox.vgrow="ALWAYS">
+            <children>
+                <GridPane layoutX="124.0" layoutY="59.0" prefHeight="118.0" prefWidth="184.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="220.0" minHeight="15.0" prefHeight="22.0" vgrow="NEVER" />
+                        <RowConstraints minHeight="0.0" prefHeight="309.0" vgrow="ALWAYS" />
+                    </rowConstraints>
+                    <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" text="ORDERS" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+                            <font>
+                                <Font name="Courier" size="13.0" />
+                            </font></Label>
+                        <ListView fx:id="listView" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black; -fx-border-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                            <placeholder>
+                                <Label text="You haven't placed an order yet"/>
+                            </placeholder>
+                        </ListView>
+                        <TextField fx:id="keyword" prefHeight="27.0" promptText="Keyword" style="-fx-border-color: white; -fx-background-color: black; -fx-text-fill: white;" translateX="-10.0" translateY="-100.0" GridPane.rowIndex="1">
+                            <font>
+                                <Font name="Courier" size="13.0" />
+                            </font>
+                        </TextField>
+                        <ComboBox fx:id="savedPaymentInfos" opacity="0.35" prefHeight="29.0" prefWidth="186.0" promptText="Select Payment Info" stylesheets="@style.css" translateY="-170.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                        <ComboBox fx:id="categories" opacity="0.35" prefHeight="29.0" prefWidth="186.0" promptText="Select Category" stylesheets="@style.css" translateY="-130.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                        <TextField fx:id="color" prefHeight="27.0" promptText="Color" style="-fx-border-color: white; -fx-background-color: black; -fx-text-fill: white;" translateX="-10.0" translateY="-70.0" GridPane.rowIndex="1">
+                            <font>
+                                <Font name="Courier" size="13.0" />
+                            </font>
+                        </TextField>
+                        <DatePicker fx:id="datePicker" prefHeight="27.0" style="-fx-border-color: white; -fx-background-color: black;" stylesheets="@style.css" translateX="-10.0" translateY="40.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                        <Label prefHeight="17.0" text="DATE/TIME TO EXECUTE" textFill="WHITE" translateY="15.0" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                            <font>
+                                <Font name="Courier" size="13.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="timeToFire" prefHeight="27.0" promptText="HH:MM:SS:MIL - example 11:00:00:000" style="-fx-border-color: white; -fx-background-color: black; -fx-text-fill: white;" translateX="-10.0" translateY="70.0" GridPane.rowIndex="1">
+                            <font>
+                                <Font name="Courier" size="13.0" />
+                            </font>
+                        </TextField>
+                        <RadioButton fx:id="radioPM" toggleGroup="$group1" mnemonicParsing="false" prefHeight="18.0" style="-fx-border-color: white; -fx-background-color: black;" text="PM" textFill="WHITE" translateX="50.0" translateY="95.0" GridPane.rowIndex="1">
+                            <font>
+                                <Font name="Courier" size="13.0" />
+                            </font>
+                        </RadioButton>
+                        <RadioButton fx:id="radioAM" toggleGroup="$group1" mnemonicParsing="false" prefHeight="18.0" style="-fx-border-color: white;" text="AM" textFill="WHITE" translateY="95.0" GridPane.rowIndex="1">
+                            <font>
+                                <Font name="Courier" size="13.0" />
+                            </font>
+                        </RadioButton>
+                        <Button fx:id="submit" onMouseReleased="#handleSubmitButtonReleased" onMousePressed="#handleSubmitButtonPressed" onMouseEntered="#handleMouseEnterSubmitButton" onMouseExited="#handleMouseExitSubmitButton" mnemonicParsing="false" prefHeight="24.0" style="-fx-border-color: white; -fx-background-color: transparent;" stylesheets="@style.css" text="SUBMIT" textFill="WHITE" translateY="130.0" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                            <font>
+                                <Font name="Courier Bold" size="13.0" />
+                            </font>
+                        </Button>
+                        <Label text="CREATE ORDER" textFill="WHITE" translateY="-220.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+                            <font>
+                                <Font name="Courier" size="13.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="size" promptText="Size - S,M,L,XL,30,32,34,36,N/A" style="-fx-border-color: white; -fx-background-color: black; -fx-text-fill: white;" translateX="-10.0" translateY="-40.0" GridPane.rowIndex="1">
+                            <font>
+                                <Font name="Courier" size="13.0" />
+                            </font>
+                        </TextField>
+                    </children>
+                </GridPane>
+            </children>
+        </AnchorPane>
+    </children>
+    <stylesheets>
+        <URL value="@BasicApplication.css" />
+    </stylesheets>
+</VBox>

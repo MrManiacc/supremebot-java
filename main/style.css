@@ -1,0 +1,20 @@
+.date-picker .text-field {
+    -fx-control-inner-background: black ;
+}
+.combo-box-base {
+    -fx-background-color: white;
+    -fx-font-family: "Courier";
+    -fx-border-color: white;
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: rgba(255, 0, 0, 0.5) ;
+}
+
+.combo-box .text-field:focused {
+    -fx-text-fill: white ;
+}
+.combo-box .text-field {
+    -fx-prompt-text-fill: rgba(255, 0, 0, 0.5) ;
+}
+
+
+
