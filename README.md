@@ -4,3 +4,7 @@ Improves upon the concept of supremebot-py by providing a user interface via Jav
 to Supreme's online shop. All inputs are essentially routed to a Java implementation of the python script, which now depends on selenium's
 Java bindings, as expected. Users can submit orders to a thread pool that allows concurrent orders and demands a specific time-to-fire for
 each order.
+
+## Setup/Dependencies
+
+Requires Java 8, JavaFX, Selenium for Java. The project also requires phantomjs binaries for OSX and Windows, and jQuery 2.
